@@ -19,11 +19,11 @@ public class LocatedInternalNodeWrapper<N extends Locatable, E> extends Internal
         super(node);
     }
 
-    public float getX() {
+    public double getX() {
         return getWrappedNode().getX();
     }
 
-    public float getY() {
+    public double getY() {
         return getWrappedNode().getY();
     }
 }

@@ -23,47 +23,47 @@ package org.geolatte.data;
 
 //public class TestPMinQueue {
 //
-//    PMinQueue<Float> minQueue;
+//    PMinQueue<Double> minQueue;
 //
 //    @Before
 //    public void setup(){
-//        minQueue = new PMinQueue<Float>();
-//        minQueue.add(Float.valueOf(100f), 100f);
-//        minQueue.add(Float.valueOf(50f), 50f);
-//        minQueue.add(Float.valueOf(10f), 10f);
-//        minQueue.add(Float.valueOf(50f), 50f);
-//        minQueue.add(Float.valueOf(40f), 40f);
-//        minQueue.add(Float.valueOf(80f), 80f);
-//        minQueue.add(Float.valueOf(30f), 30f);
-//        minQueue.add(Float.valueOf(120f), 120f);
+//        minQueue = new PMinQueue<Double>();
+//        minQueue.add(Double.valueOf(100f), 100f);
+//        minQueue.add(Double.valueOf(50f), 50f);
+//        minQueue.add(Double.valueOf(10f), 10f);
+//        minQueue.add(Double.valueOf(50f), 50f);
+//        minQueue.add(Double.valueOf(40f), 40f);
+//        minQueue.add(Double.valueOf(80f), 80f);
+//        minQueue.add(Double.valueOf(30f), 30f);
+//        minQueue.add(Double.valueOf(120f), 120f);
 //    }
 //
 //    @Test
 //    public void test_min_queue_min_order() {
-//        assertEquals(Float.valueOf(10f), minQueue.deleteMin());
-//        minQueue.add(Float.valueOf(1.0f), 1.0f);
-//        assertEquals(Float.valueOf(1f), minQueue.deleteMin());
+//        assertEquals(Double.valueOf(10f), minQueue.deleteMin());
+//        minQueue.add(Double.valueOf(1.0f), 1.0f);
+//        assertEquals(Double.valueOf(1f), minQueue.deleteMin());
 //    }
 //
 //    @Test
 //    public void test_get_value() {
-//        Float f = minQueue.get(Float.valueOf(80f));
-//        assertEquals(Float.valueOf(80f), f);
+//        Double f = minQueue.get(Double.valueOf(80f));
+//        assertEquals(Double.valueOf(80f), f);
 //    }
 //
 //    @Test
 //    public void test_isEmpty() {
 //        assertTrue(!minQueue.isEmpty());
-//        PMinQueue<Float> emptyQueue = new PMinQueue<Float>();
+//        PMinQueue<Double> emptyQueue = new PMinQueue<Double>();
 //        assertTrue(emptyQueue.isEmpty());
 //    }
 //
 //
 //    @Test
 //    public void test_update() {
-//        Float value = Float.valueOf(80f);
+//        Double value = Double.valueOf(80f);
 //        minQueue.update(value, 0.0f);
-//        Float minValue = minQueue.deleteMin();
+//        Double minValue = minQueue.deleteMin();
 //        assertEquals(value, minValue);
 //    }
 //

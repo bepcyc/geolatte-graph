@@ -71,7 +71,7 @@ public class Dijkstra<N, E> implements GraphAlgorithm<Path<N>>, Serializable {
     public void execute() {
         Set<InternalNode<N, E>> closed = new HashSet<InternalNode<N, E>>();
         BasicPredGraph<N, E> startPG = new BasicPredGraph<N, E>(this.origin, 0.0f);
-        minQueue.add(startPG, Float.POSITIVE_INFINITY);
+        minQueue.add(startPG, Double.POSITIVE_INFINITY);
         while (!minQueue.isEmpty()) {
             PredGraph<N, E> pu = minQueue.extractMin();
             closed.add(pu.getInternalNode());
@@ -89,8 +89,8 @@ public class Dijkstra<N, E> implements GraphAlgorithm<Path<N>>, Serializable {
                 PredGraph<N, E> pv = minQueue.get(v);
                 if (pv == null) {
                     pv = new BasicPredGraph<N, E>(v,
-                            Float.POSITIVE_INFINITY);
-                    minQueue.add(pv, Float.POSITIVE_INFINITY);
+                            Double.POSITIVE_INFINITY);
+                    minQueue.add(pv, Double.POSITIVE_INFINITY);
                 }
                 if (this.relaxer.relax(pu, pv, weightIndex)) {
                     this.minQueue.update(pv, this.relaxer.newTotalWeight());

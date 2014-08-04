@@ -60,6 +60,6 @@ interface Relaxer<N, E> {
      *
      * @return The new total weight of the path to internalNode v.
      */
-    public float newTotalWeight();
+    public double newTotalWeight();
 
 }

@@ -40,16 +40,16 @@ public class DistanceHeuristicStrategyTest {
     @Test
     public void testGetValue() throws Exception {
 
-        final float factor = 0.5f;
+        final double factor = 0.5f;
         DistanceHeuristicStrategy<Locatable> strategy = new DistanceHeuristicStrategy<Locatable>(factor);
 
         Locatable loc1 = Mockito.mock(Locatable.class);
-        Mockito.when(loc1.getX()).thenReturn(0.0f);
-        Mockito.when(loc1.getY()).thenReturn(0.0f);
+        Mockito.when(loc1.getX()).thenReturn(0.0d);
+        Mockito.when(loc1.getY()).thenReturn(0.0d);
 
         Locatable loc2 = Mockito.mock(Locatable.class);
-        Mockito.when(loc2.getX()).thenReturn(1.0f);
-        Mockito.when(loc2.getY()).thenReturn(1.0f);
+        Mockito.when(loc2.getX()).thenReturn(1.0d);
+        Mockito.when(loc2.getY()).thenReturn(1.0d);
 
         // => distance = sqrt(1*1 + 1*1)
 

@@ -32,10 +32,10 @@ public interface Locatable {
     /**
      * @return The X-coordinate
      */
-    public float getX();
+    public double getX();
 
     /**
      * @return The Y-coordinate
      */
-    public float getY();
+    public double getY();
 }

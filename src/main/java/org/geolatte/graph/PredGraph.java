@@ -56,13 +56,13 @@ public interface PredGraph<N, E> extends Traversal<N, E> {
      *
      * @param d The new weight.
      */
-    void setWeight(float d);
+    void setWeight(double d);
 
     /**
      * Gets the weight of the path to the current node.
      *
      * @return The weight of this node.
      */
-    float getWeight();
+    double getWeight();
 
 }

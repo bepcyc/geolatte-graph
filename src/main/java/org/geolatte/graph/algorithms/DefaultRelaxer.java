@@ -38,11 +38,11 @@ import org.geolatte.graph.PredGraph;
 class DefaultRelaxer<N, E> implements Relaxer<N, E>, Serializable {
 
     private static final long serialVersionUID = 5871803335700341231L;
-	private float newWeight;
+	private double newWeight;
 
     public boolean relax(PredGraph<N, E> u, PredGraph<N, E> v, int weightIndex) {
 
-        float r = u.getWeight() + u.getInternalNode().getWeightTo(v.getInternalNode(), weightIndex);
+        double r = u.getWeight() + u.getInternalNode().getWeightTo(v.getInternalNode(), weightIndex);
         if (r < v.getWeight()) {
             v.setWeight(r);
             v.setPredecessor(u);
@@ -62,12 +62,12 @@ class DefaultRelaxer<N, E> implements Relaxer<N, E>, Serializable {
      * @param baseWeight The new base weight.
      * @return A new weight.
      */
-    protected float update(InternalNode<N, E> nd, float baseWeight) {
+    protected double update(InternalNode<N, E> nd, double baseWeight) {
 
         return baseWeight;
     }
 
-    public float newTotalWeight() {
+    public double newTotalWeight() {
 
         return newWeight;
     }

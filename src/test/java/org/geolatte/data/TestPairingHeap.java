@@ -48,31 +48,31 @@ public class TestPairingHeap {
     public void test_insert_respects_invariant() {
         PairingHeap<Data> heap = new PairingHeap<Data>();
         assertTrue(heap.isEmpty());
-        heap.insert(new Data(10f));
+        heap.insert(new Data(10d));
         assertTrue(!heap.isEmpty());
         Data min = heap.findMin();
-        assertEquals(Float.valueOf(10f), min.value);
-        heap.insert(new Data(1f));
+        assertEquals(Double.valueOf(10d), min.value);
+        heap.insert(new Data(1d));
         min = heap.findMin();
-        assertEquals(Float.valueOf(1f), min.value);
-        heap.insert(new Data(4.f));
+        assertEquals(Double.valueOf(1d), min.value);
+        heap.insert(new Data(4.d));
         min = heap.findMin();
-        assertEquals(Float.valueOf(1f), min.value);
-        heap.insert(new Data(12f));
+        assertEquals(Double.valueOf(1d), min.value);
+        heap.insert(new Data(12d));
         min = heap.findMin();
-        assertEquals(Float.valueOf(1f), min.value);
+        assertEquals(Double.valueOf(1d), min.value);
 
         //start deleting elements in order
         min = heap.deleteMin();
-        assertEquals(Float.valueOf(1f), min.value);
+        assertEquals(Double.valueOf(1d), min.value);
         min = heap.findMin();
-        assertEquals(Float.valueOf(4.0f), min.value);
+        assertEquals(Double.valueOf(4.0d), min.value);
         min = heap.deleteMin();
-        assertEquals(Float.valueOf(4.0f), min.value);
+        assertEquals(Double.valueOf(4.0d), min.value);
         min = heap.deleteMin();
-        assertEquals(Float.valueOf(10.0f), min.value);
+        assertEquals(Double.valueOf(10.0d), min.value);
         min = heap.deleteMin();
-        assertEquals(Float.valueOf(12.0f), min.value);
+        assertEquals(Double.valueOf(12.0d), min.value);
         assertTrue(heap.isEmpty());
 
     }
@@ -85,7 +85,7 @@ public class TestPairingHeap {
         Random random = new Random();
         for (int i = 0; i < size; i++) {
             int rint = random.nextInt();
-            Data d = new Data((float) rint);
+            Data d = new Data((double) rint);
             heap.insert(d);
         }
 
@@ -106,7 +106,7 @@ public class TestPairingHeap {
         List<PairNode<Data>> nodelist = new ArrayList<PairNode<Data>>();
         for (int i = 0; i < size; i++) {
             int rint = random.nextInt();
-            Data d = new Data((float) rint);
+            Data d = new Data((double) rint);
             PairNode<Data> pn = heap.insert(d);
             nodelist.add(pn);
         }
@@ -133,7 +133,7 @@ public class TestPairingHeap {
         Random random = new Random();
         for (int i = 0; i < size; i++) {
             int rint = random.nextInt();
-            NCData d = new NCData((float) rint);
+            NCData d = new NCData((double) rint);
             heap.insert(d);
         }
 
@@ -150,7 +150,7 @@ public class TestPairingHeap {
     public void test_comparator_or_comparable() {
         PairingHeap<NCData> heap = new PairingHeap<NCData>();
         try {
-            heap.insert(new NCData(10f));
+            heap.insert(new NCData(10d));
             fail("Either comparable, or explicit comparator needed!");
         } catch (IllegalArgumentException e) {
             //OK
@@ -161,21 +161,21 @@ public class TestPairingHeap {
     public void test_decrease_key() {
         PairingHeap<Data> heap = new PairingHeap<Data>();
 
-        Data d1 = new Data(1.0f);
-        Data d2 = new Data(2.0f);
-        Data d3 = new Data(3.0f);
-        Data d4 = new Data(4.0f);
+        Data d1 = new Data(1.0d);
+        Data d2 = new Data(2.0d);
+        Data d3 = new Data(3.0d);
+        Data d4 = new Data(4.0d);
 
         PairNode<Data> pn2 = heap.insert(d2);
         PairNode<Data> pn4 = heap.insert(d4);
         PairNode<Data> pn1 = heap.insert(d1);
         PairNode<Data> pn3 = heap.insert(d3);
 
-        heap.decreaseKey(pn4, new Data(-1.0f));
-        assertEquals(Float.valueOf(-1.0f), heap.findMin().value);
+        heap.decreaseKey(pn4, new Data(-1.0d));
+        assertEquals(Double.valueOf(-1.0d), heap.findMin().value);
 
-        heap.decreaseKey(pn3, new Data(-2.0f));
-        assertEquals(Float.valueOf(-2.0f), heap.findMin().value);
+        heap.decreaseKey(pn3, new Data(-2.0d));
+        assertEquals(Double.valueOf(-2.0d), heap.findMin().value);
 
     }
 
@@ -183,23 +183,23 @@ public class TestPairingHeap {
     public void test_decrease_key_with_higher_value() {
         PairingHeap<Data> heap = new PairingHeap<Data>();
 
-        Data d1 = new Data(1.0f);
-        Data d2 = new Data(2.0f);
-        Data d3 = new Data(3.0f);
-        Data d4 = new Data(4.0f);
+        Data d1 = new Data(1.0d);
+        Data d2 = new Data(2.0d);
+        Data d3 = new Data(3.0d);
+        Data d4 = new Data(4.0d);
 
         PairNode<Data> pn2 = heap.insert(d2);
         PairNode<Data> pn4 = heap.insert(d4);
         PairNode<Data> pn1 = heap.insert(d1);
         PairNode<Data> pn3 = heap.insert(d3);
 
-        heap.decreaseKey(pn1, new Data(2.0f));
-        heap.decreaseKey(pn2, new Data(3.0f));
-        heap.decreaseKey(pn3, new Data(3.0f));
+        heap.decreaseKey(pn1, new Data(2.0d));
+        heap.decreaseKey(pn2, new Data(3.0d));
+        heap.decreaseKey(pn3, new Data(3.0d));
 
-        assertEquals(Float.valueOf(1.0f), heap.deleteMin().value);
-        assertEquals(Float.valueOf(2.0f), heap.deleteMin().value);
-        assertEquals(Float.valueOf(3.0f), heap.deleteMin().value);
+        assertEquals(Double.valueOf(1.0d), heap.deleteMin().value);
+        assertEquals(Double.valueOf(2.0d), heap.deleteMin().value);
+        assertEquals(Double.valueOf(3.0d), heap.deleteMin().value);
     }
 
     @Test
@@ -230,10 +230,10 @@ public class TestPairingHeap {
 
     static class Data implements Comparable<Data> {
 
-        public Float value;
+        public Double value;
 
-        Data(Float f) {
-            this.value = f;
+        Data(Double d) {
+            this.value = d;
         }
 
         public int compareTo(Data o) {
@@ -242,10 +242,10 @@ public class TestPairingHeap {
     }
 
     static class NCData {
-        public final Float value;
+        public final Double value;
 
-        NCData(Float f) {
-            this.value = f;
+        NCData(Double d) {
+            this.value = d;
         }
     }
 

@@ -89,14 +89,14 @@ class InternalNodeWrapper<N, E> implements InternalNode<N, E>, Serializable {
         this.fromInternalNodes[this.fromInternalNodes.length - 1] = fromInternalNode;
     }
 
-    public float getWeightTo(InternalNode<N, E> toInternalNode, int weightKind) {
+    public double getWeightTo(InternalNode<N, E> toInternalNode, int weightKind) {
 
         for (int i = 0; i < this.toNodes.length; i++) {
             if (this.toNodes[i].wrappedNodal.equals(toInternalNode.getWrappedNode())) {
                 return this.toWeights[i].getValue(weightKind);
             }
         }
-        return Float.MAX_VALUE;
+        return Double.MAX_VALUE;
     }
 
     @SuppressWarnings("unchecked")
@@ -113,14 +113,14 @@ class InternalNodeWrapper<N, E> implements InternalNode<N, E>, Serializable {
     /**
      * @return The X-coordinate
      */
-    public float getX() {
+    public double getX() {
         return 0;
     }
 
     /**
      * @return The Y-coordinate
      */
-    public float getY() {
+    public double getY() {
         return 0;
     }
 }

@@ -37,16 +37,16 @@ import org.geolatte.graph.Locatable;
 public class DistanceHeuristicStrategy<T extends Locatable> implements HeuristicStrategy<T>, Serializable {
 
     private static final long serialVersionUID = -8407359842322883407L;
-	private final float factor;
+	private final double factor;
 
-    public DistanceHeuristicStrategy(float factor) {
+    public DistanceHeuristicStrategy(double factor) {
         this.factor = factor;
     }
 
-    public float getValue(T from, T to) {
+    public double getValue(T from, T to) {
 
         double dx = (double) (from.getX() - to.getX());
         double dy = (double) (from.getY() - to.getY());
-        return (float) (factor * Math.sqrt(dx * dx + dy * dy));
+        return (double) (factor * Math.sqrt(dx * dx + dy * dy));
     }
 }

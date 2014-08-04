@@ -39,5 +39,5 @@ public interface HeuristicStrategy<T> {
      * @param to   The destination object.
      * @return A heuristic value.
      */
-    float getValue(T from, T to);
+    double getValue(T from, T to);
 }

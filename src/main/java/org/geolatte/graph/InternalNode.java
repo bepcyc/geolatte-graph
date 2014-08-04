@@ -68,7 +68,7 @@ public interface InternalNode<N, E> extends Locatable {
      * @param weightIndex Indicates which weight to use.
      * @return An edge weight.
      */
-    float getWeightTo(InternalNode<N, E> toNode, int weightIndex);
+    double getWeightTo(InternalNode<N, E> toNode, int weightIndex);
 
     /**
      * Gets the label associated with the edge to go from this node to the given {@code toNode}.

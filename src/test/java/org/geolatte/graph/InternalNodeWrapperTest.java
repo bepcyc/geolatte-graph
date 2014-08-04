@@ -107,7 +107,7 @@ public class InternalNodeWrapperTest {
         Assert.assertEquals(2.0f, iNode2.getWeightTo(iNode3, 0), 0.005);
         Assert.assertEquals(3.0f, iNode1.getWeightTo(iNode3, 0), 0.005);
 
-        Assert.assertEquals(Float.MAX_VALUE, iNode2.getWeightTo(iNode1, 0), 0.005);
+        Assert.assertEquals(Double.MAX_VALUE, iNode2.getWeightTo(iNode1, 0), 0.005);
     }
 
     @Test

@@ -38,7 +38,7 @@ public class ArrayEdgeWeightTest {
     @Test
     public void testConstructorGetValue() throws Exception {
 
-        float[] weights = new float[]{1, 2, 3};
+        double[] weights = new double[]{1, 2, 3};
 
         ArrayEdgeWeight arrayEdgeWeight = new ArrayEdgeWeight(weights);
 
@@ -50,7 +50,7 @@ public class ArrayEdgeWeightTest {
     @Test(expected = IndexOutOfBoundsException.class)
     public void testGetValueError() throws Exception {
 
-        float[] weights = new float[]{1, 2, 3};
+        double[] weights = new double[]{1, 2, 3};
 
         ArrayEdgeWeight arrayEdgeWeight = new ArrayEdgeWeight(weights);
 

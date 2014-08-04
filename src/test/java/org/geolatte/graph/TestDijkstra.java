@@ -32,7 +32,7 @@ import static org.junit.Assert.assertTrue;
 public class TestDijkstra {
 
     static MyLocatableNode[] myNodes;
-    static float[][] weights;
+    static double[][] weights;
 
     static {
         myNodes = new MyLocatableNode[]{
@@ -43,7 +43,7 @@ public class TestDijkstra {
                 new MyLocatableNode(4, 200, 100)
         };
 
-        weights = new float[][]{
+        weights = new double[][]{
                 {-1f, 10f, 5f, -1f, -1f},
                 {-1f, -1f, 2f, 1f, -1f},
                 {-1f, 3f, -1f, 9f, 2f},
@@ -67,7 +67,7 @@ public class TestDijkstra {
                     final int finalI = i;
                     final int finalJ = j;
                     builder.addEdge(copy(myNodes[i]), copy(myNodes[j]), new EdgeWeight() {
-                        public float getValue(int weightKind) {
+                        public double getValue(int weightKind) {
                             return weights[finalI][finalJ];
                         }
                     });

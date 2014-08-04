@@ -50,7 +50,7 @@ public class SpatialIndexes implements Serializable {
     // Implementation Spatial Index Builders
     private static class GridIndexBuilder<N extends Locatable> implements SpatialIndexBuilder<N> {
 
-        private final float resolution;
+        private final double resolution;
         private final Extent extent;
 
         //the resolution values satisfy the property:
@@ -59,7 +59,7 @@ public class SpatialIndexes implements Serializable {
         private final int xNumCells, yNumCells;
 
         @SuppressWarnings("unchecked")
-        private GridIndexBuilder(Extent extent, float resolution) {
+        private GridIndexBuilder(Extent extent, double resolution) {
             this.extent = extent;
             if (resolution < 1) {
                 throw new IllegalArgumentException("Resolution must be larger than 1");

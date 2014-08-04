@@ -53,7 +53,7 @@ public interface SpatialIndex<T extends Locatable> {
      * @param maxDistance The maximum distance to search (inclusive).
      * @return A list of closest nodes sorted according to ascending distance.
      */
-    public List<T> getNClosest(Locatable center, int num, float maxDistance);
+    public List<T> getNClosest(Locatable center, int num, double maxDistance);
 
     /**
      * An iterator over all nodes in the index.

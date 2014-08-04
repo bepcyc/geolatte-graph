@@ -38,7 +38,7 @@ class BasicPath<N> implements Path<N>, Serializable {
     private static final long serialVersionUID = -6208319520193617233L;
 	private final List<N> nodes = new LinkedList<N>();
     private boolean valid = false;
-    private float weight;
+    private double weight;
 
     public void insert(N nd) {
         nodes.add(0, nd);
@@ -48,7 +48,7 @@ class BasicPath<N> implements Path<N>, Serializable {
         this.valid = true;
     }
 
-    public void setTotalWeight(float w) {
+    public void setTotalWeight(double w) {
         this.weight = w;
     }
 
@@ -66,7 +66,7 @@ class BasicPath<N> implements Path<N>, Serializable {
     }
 
 
-    public float totalWeight() {
+    public double totalWeight() {
 
         return this.weight;
     }

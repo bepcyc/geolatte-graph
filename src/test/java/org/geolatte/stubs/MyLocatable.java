@@ -14,10 +14,10 @@ import org.geolatte.graph.Locatable;
 public class MyLocatable implements Locatable {
 
 
-    private float x;
-    private float y;
+    private double x;
+    private double y;
 
-    public MyLocatable(float x, float y) {
+    public MyLocatable(double x, double y) {
         this.x = x;
         this.y = y;
     }
@@ -25,14 +25,14 @@ public class MyLocatable implements Locatable {
     /**
      * @return The X-coordinate
      */
-    public float getX() {
+    public double getX() {
         return this.x;
     }
 
     /**
      * @return The Y-coordinate
      */
-    public float getY() {
+    public double getY() {
         return this.y;
     }
 }

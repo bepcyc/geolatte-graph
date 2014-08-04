@@ -43,7 +43,7 @@ import org.geolatte.graph.InternalNode;
 class HeuristicRelaxer<N, E> extends DefaultRelaxer<N, E> {
 
     private static final long serialVersionUID = -4774499761441586839L;
-	private final float heuristicWeight; // weight given to the heuristic component
+	private final double heuristicWeight; // weight given to the heuristic component
     private final N destination;
     private final HeuristicStrategy<N> heuristicStrategy;
 
@@ -54,14 +54,14 @@ class HeuristicRelaxer<N, E> extends DefaultRelaxer<N, E> {
      * @param destination       The final destination internalNode.
      * @param heuristicStrategy The strategy used to calculate the heuristic.
      */
-    protected HeuristicRelaxer(float heuristicWeight, N destination, HeuristicStrategy<N> heuristicStrategy) {
+    protected HeuristicRelaxer(double heuristicWeight, N destination, HeuristicStrategy<N> heuristicStrategy) {
 
         this.heuristicWeight = heuristicWeight;
         this.destination = destination;
         this.heuristicStrategy = heuristicStrategy;
     }
 
-    protected float update(InternalNode<N, E> nd, float baseWeight) {
+    protected double update(InternalNode<N, E> nd, double baseWeight) {
 
         return baseWeight + this.heuristicWeight * (heuristicStrategy.getValue(nd.getWrappedNode(), destination));
     }

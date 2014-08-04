@@ -35,7 +35,7 @@ public interface Path<N> extends Iterable<N> {
      *
      * @return The total weight of the path.
      */
-    public float totalWeight();
+    public double totalWeight();
 
     /**
      * Gets the source node.

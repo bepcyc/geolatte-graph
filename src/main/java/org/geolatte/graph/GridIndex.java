@@ -37,7 +37,7 @@ class GridIndex<T extends Locatable> implements SpatialIndex<T>, Serializable {
 
 	private static final long serialVersionUID = -4332424933830749891L;
 	private final Extent extent;
-    private final float resolution;
+    private final double resolution;
     /*
      * The actual grid, elements are always of type T
      * grid[x][y][elements]
@@ -53,7 +53,7 @@ class GridIndex<T extends Locatable> implements SpatialIndex<T>, Serializable {
      */
     private Object[][][] grid;
 
-    GridIndex(Extent extent, float resolution) {
+    GridIndex(Extent extent, double resolution) {
         this.extent = extent;
         this.resolution = resolution;
     }
@@ -90,7 +90,7 @@ class GridIndex<T extends Locatable> implements SpatialIndex<T>, Serializable {
     }
 
     @SuppressWarnings("unchecked")
-    public List<T> getNClosest(Locatable locatable, int num, float maxDistance) {
+    public List<T> getNClosest(Locatable locatable, int num, double maxDistance) {
 
         if (locatable == null || num == 0) {
             return new ArrayList<T>();

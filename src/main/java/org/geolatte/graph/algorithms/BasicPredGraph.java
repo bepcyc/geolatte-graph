@@ -42,9 +42,9 @@ class BasicPredGraph<N, E> implements PredGraph<N, E>, Serializable {
     private static final long serialVersionUID = -136266015492468569L;
 	private final InternalNode<N, E> internalNode;
     private PredGraph<N, E> predecessor = null;
-    private float weight;
+    private double weight;
 
-    BasicPredGraph(InternalNode<N, E> n, float weight) {
+    BasicPredGraph(InternalNode<N, E> n, double weight) {
         this.internalNode = n;
         this.weight = weight;
     }
@@ -53,11 +53,11 @@ class BasicPredGraph<N, E> implements PredGraph<N, E>, Serializable {
         return predecessor;
     }
 
-    public float getWeight() {
+    public double getWeight() {
         return this.weight;
     }
 
-    public void setWeight(float w) {
+    public void setWeight(double w) {
         this.weight = w;
     }
 

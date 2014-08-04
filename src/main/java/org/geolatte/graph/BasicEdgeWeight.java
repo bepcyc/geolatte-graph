@@ -35,18 +35,18 @@ import java.io.Serializable;
 public class BasicEdgeWeight implements EdgeWeight, Serializable {
 
     private static final long serialVersionUID = -7891844279532330025L;
-	private final float value;
+	private final double value;
 
     /**
      * Constructs a BasiEdgeWeight with the given weight value.
      *
      * @param value The weight.
      */
-    public BasicEdgeWeight(float value) {
+    public BasicEdgeWeight(double value) {
         this.value = value;
     }
 
-    public float getValue(int weightKind) {
+    public double getValue(int weightKind) {
         return value;
     }
 }

@@ -54,7 +54,7 @@ public class PMinQueue<V, E> implements Serializable {
      * @param value The value to add.
      * @param key   The priority.
      */
-    public void add(PredGraph<V, E> value, float key) {
+    public void add(PredGraph<V, E> value, double key) {
         PairNode<Element<V, E>> pn = heap.insert(new Element<V, E>(value, key));
         this.index.put(value.getInternalNode(), pn);
     }
@@ -93,7 +93,7 @@ public class PMinQueue<V, E> implements Serializable {
         return this.heap.isEmpty();
     }
 
-    public void update(PredGraph<V, E> value, float r) {
+    public void update(PredGraph<V, E> value, double r) {
         PairNode<Element<V, E>> node = this.index.get(value.getInternalNode());
         if (node == null) {
             throw new RuntimeException("Node not in Pairing Heap.");
@@ -104,10 +104,10 @@ public class PMinQueue<V, E> implements Serializable {
 
     static class Element<V, E> implements Comparable<Element<V, E>>, Serializable {
         private static final long serialVersionUID = -8745364601911679907L;
-		private final Float key;
+		private final Double key;
         private final PredGraph<V, E> value;
 
-        Element(PredGraph<V, E> value, Float key) {
+        Element(PredGraph<V, E> value, Double key) {
             this.key = key;
             this.value = value;
         }

@@ -45,17 +45,17 @@ public class BFSDistanceLimited<N, E> implements GraphAlgorithm<GraphTree<N, E>>
 
     private static final long serialVersionUID = -4575828613170252767L;
 	private final InternalNode<N, E> source;
-    private final float maxDistance;
+    private final double maxDistance;
     private final Graph<N, E> graph;
     private GraphTree<N, E> result;
     private final int weightIndex;
     private final RoutingContextualReachability<N, E, BFSState<N, E>> contextualReachability;
 
-    BFSDistanceLimited(Graph<N, E> graph, N source, float maxDistance, int weightIndex) {
+    BFSDistanceLimited(Graph<N, E> graph, N source, double maxDistance, int weightIndex) {
         this(graph, source, maxDistance, weightIndex, new EmptyContextualReachability<N, E, BFSState<N, E>>());
     }
 
-    BFSDistanceLimited(Graph<N, E> graph, N source, float maxDistance, int weightIndex, RoutingContextualReachability<N, E, BFSState<N, E>> contextualReachability) {
+    BFSDistanceLimited(Graph<N, E> graph, N source, double maxDistance, int weightIndex, RoutingContextualReachability<N, E, BFSState<N, E>> contextualReachability) {
         this.graph = graph;
         this.source = graph.getInternalNode(source);
         this.maxDistance = maxDistance;
@@ -112,8 +112,8 @@ public class BFSDistanceLimited<N, E> implements GraphAlgorithm<GraphTree<N, E>>
         return this.result;
     }
 
-//    protected Map<N, Float> toMap(Set<BFSState<N, E>> nodes) {
-//        Map<N, Float> map = new HashMap<N, Float>(nodes.size());
+//    protected Map<N, Double> toMap(Set<BFSState<N, E>> nodes) {
+//        Map<N, Double> map = new HashMap<N, Double>(nodes.size());
 //        for (BFSState<N, E> wu : nodes) {
 //            map.put(wu.internalNode.getWrappedNode(), wu.distance);
 //        }
@@ -125,7 +125,7 @@ public class BFSDistanceLimited<N, E> implements GraphAlgorithm<GraphTree<N, E>>
 
         private static final long serialVersionUID = -7424296921071393538L;
 		final InternalNode<N, E> internalNode;
-        float distance = Float.POSITIVE_INFINITY;
+        double distance = Double.POSITIVE_INFINITY;
         private BFSState<N, E> predecessor;
         private final List<BFSState<N, E>> children = new LinkedList<BFSState<N, E>>();
 

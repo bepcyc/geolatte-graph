@@ -54,7 +54,7 @@ public class GraphAlgorithms implements Serializable {
      */
     public static <N, E> GraphAlgorithm<GraphTree<N,E>> createBFS(Graph<N, E> graph,
                                                                  N source,
-                                                                 float maxDistance,
+                                                                 double maxDistance,
                                                                  int weightIndex) {
 
         return new BFSDistanceLimited<N, E>(graph, source, maxDistance, weightIndex);
@@ -116,8 +116,8 @@ public class GraphAlgorithms implements Serializable {
                                                                                N origin,
                                                                                N destination,
                                                                                int weightIndex,
-                                                                               float heuristicWeight,
-                                                                               float factor) {
+                                                                               double heuristicWeight,
+                                                                               double factor) {
 
         Relaxer<N, E> relaxer = createAStarRelaxer(heuristicWeight, factor, destination);
         return new Dijkstra<N, E>(graph, origin, destination, relaxer, weightIndex);
@@ -146,7 +146,7 @@ public class GraphAlgorithms implements Serializable {
      * @param <E>             The edge label type.
      * @return A relaxer for the A* algorithms.
      */
-    protected static <N extends Locatable, E> Relaxer<N, E> createAStarRelaxer(float heuristicWeight, float factor, N destination) {
+    protected static <N extends Locatable, E> Relaxer<N, E> createAStarRelaxer(double heuristicWeight, double factor, N destination) {
 
         return new HeuristicRelaxer<N, E>(heuristicWeight, destination, new DistanceHeuristicStrategy<N>(factor));
     }

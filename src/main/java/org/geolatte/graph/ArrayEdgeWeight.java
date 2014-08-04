@@ -36,19 +36,19 @@ import java.util.Arrays;
 public class ArrayEdgeWeight implements EdgeWeight, Serializable {
 
 	private static final long serialVersionUID = -3655825881525807357L;
-	private final float[] weights;
+	private final double[] weights;
 
     /**
      * Constructs an ArrayEdgeWeight using the given array of weights.
      *
      * @param weights An array of weights.
      */
-    public ArrayEdgeWeight(float[] weights) {
+    public ArrayEdgeWeight(double[] weights) {
 
         this.weights = Arrays.copyOf(weights, weights.length);
     }
 
-    public float getValue(int weightIndex) {
+    public double getValue(int weightIndex) {
 
         return weights[weightIndex];
     }
