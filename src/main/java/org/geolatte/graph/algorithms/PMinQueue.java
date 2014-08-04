@@ -26,6 +26,7 @@ import org.geolatte.data.PairingHeap;
 import org.geolatte.graph.InternalNode;
 import org.geolatte.graph.PredGraph;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -35,9 +36,10 @@ import java.util.Map;
  * @param <V>
  * @author Karel Maesen, Geovise BVBA
  */
-public class PMinQueue<V, E> {
+public class PMinQueue<V, E> implements Serializable {
 
-    private final PairingHeap<Element<V, E>> heap = new PairingHeap<Element<V, E>>();
+    private static final long serialVersionUID = -5781184998490076527L;
+	private final PairingHeap<Element<V, E>> heap = new PairingHeap<Element<V, E>>();
     private final Map<InternalNode<V, E>, PairNode<Element<V, E>>> index = new HashMap<InternalNode<V, E>, PairNode<Element<V, E>>>();
 
     /**
@@ -100,8 +102,9 @@ public class PMinQueue<V, E> {
         this.heap.decreaseKey(node, newElement);
     }
 
-    static class Element<V, E> implements Comparable<Element<V, E>> {
-        private final Float key;
+    static class Element<V, E> implements Comparable<Element<V, E>>, Serializable {
+        private static final long serialVersionUID = -8745364601911679907L;
+		private final Float key;
         private final PredGraph<V, E> value;
 
         Element(PredGraph<V, E> value, Float key) {

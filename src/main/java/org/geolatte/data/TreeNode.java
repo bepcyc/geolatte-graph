@@ -21,6 +21,8 @@
 
 package org.geolatte.data;
 
+import java.io.Serializable;
+
 /**
  * <p>
  * The node structure used by {@link RedBlackTree}.
@@ -29,9 +31,11 @@ package org.geolatte.data;
  * @param <K> The key type.
  * @param <D> The data type.
  */
-public final class TreeNode<K, D> {
+public final class TreeNode<K, D> implements Serializable {
 
-    protected byte color = RedBlackTree.BLACK;
+    private static final long serialVersionUID = 2334896786115901530L;
+
+	protected byte color = RedBlackTree.BLACK;
 
     protected D data;
 

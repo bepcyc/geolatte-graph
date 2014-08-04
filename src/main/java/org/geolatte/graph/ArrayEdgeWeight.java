@@ -21,6 +21,7 @@
 
 package org.geolatte.graph;
 
+import java.io.Serializable;
 import java.util.Arrays;
 
 /**
@@ -32,9 +33,10 @@ import java.util.Arrays;
  * @author <a href="http://www.qmino.com">Qmino bvba</a>
  * @since SDK1.5
  */
-public class ArrayEdgeWeight implements EdgeWeight {
+public class ArrayEdgeWeight implements EdgeWeight, Serializable {
 
-    private final float[] weights;
+	private static final long serialVersionUID = -3655825881525807357L;
+	private final float[] weights;
 
     /**
      * Constructs an ArrayEdgeWeight using the given array of weights.

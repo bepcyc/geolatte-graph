@@ -22,6 +22,7 @@
 package org.geolatte.data;
 
 import java.io.PrintStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -35,9 +36,10 @@ import java.util.List;
  * @param <D> Type of the data contained in a node.
  * @author Karel Maesen, Geovise BVBA
  */
-public class RedBlackTree<K, D> {
+public class RedBlackTree<K, D> implements Serializable {
 
-    public static final byte RED = 0;
+    private static final long serialVersionUID = 699495506133824125L;
+	public static final byte RED = 0;
     public static final byte BLACK = 1;
 
     public final TreeNode<K, D> NIL = new TreeNode<K, D>(); // singleton leaf node

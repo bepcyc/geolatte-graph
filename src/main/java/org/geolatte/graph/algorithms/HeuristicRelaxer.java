@@ -42,7 +42,8 @@ import org.geolatte.graph.InternalNode;
  */
 class HeuristicRelaxer<N, E> extends DefaultRelaxer<N, E> {
 
-    private final float heuristicWeight; // weight given to the heuristic component
+    private static final long serialVersionUID = -4774499761441586839L;
+	private final float heuristicWeight; // weight given to the heuristic component
     private final N destination;
     private final HeuristicStrategy<N> heuristicStrategy;
 

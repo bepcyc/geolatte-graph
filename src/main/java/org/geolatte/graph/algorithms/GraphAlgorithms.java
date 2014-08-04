@@ -21,6 +21,8 @@
 
 package org.geolatte.graph.algorithms;
 
+import java.io.Serializable;
+
 import org.geolatte.graph.Graph;
 import org.geolatte.graph.GraphTree;
 import org.geolatte.graph.Locatable;
@@ -35,9 +37,11 @@ import org.geolatte.graph.Traversal;
  * @author Karel Maesen
  * @author Bert Vanhooff
  */
-public class GraphAlgorithms {
+public class GraphAlgorithms implements Serializable {
 
-    /**
+    private static final long serialVersionUID = -921467980038616893L;
+
+	/**
      * Creates a {@link BFSDistanceLimited} algorithm instance.
      *
      * @param graph       The graph.

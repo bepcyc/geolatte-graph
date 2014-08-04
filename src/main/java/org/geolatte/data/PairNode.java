@@ -21,6 +21,7 @@
 
 package org.geolatte.data;
 
+import java.io.Serializable;
 import java.util.Comparator;
 
 /**
@@ -46,9 +47,10 @@ import java.util.Comparator;
  * @author Karel Maesen
  * @author Bert Vanhooff
  */
-public final class PairNode<E> implements Comparable<PairNode<E>> {
+public final class PairNode<E> implements Comparable<PairNode<E>>, Serializable {
 
-    private E element;
+    private static final long serialVersionUID = -5074325520109281264L;
+	private E element;
     private PairNode<E> leftChild;
     private PairNode<E> nextSibling;
     private PairNode<E> prev;

@@ -21,15 +21,19 @@
 
 package org.geolatte.graph;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Offers a number of static factory methods to create spatial indexes.
  */
-public class SpatialIndexes {
+public class SpatialIndexes implements Serializable {
 
-    /**
+    private static final long serialVersionUID = 4794405414932492783L;
+
+
+	/**
      * Creates a builder for a spatial index.
      *
      * @param extent     The extent of the index. Nodes can only be within or on the edges of the extent.

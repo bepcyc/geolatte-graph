@@ -21,6 +21,8 @@
 
 package org.geolatte.graph.algorithms;
 
+import java.io.Serializable;
+
 import org.geolatte.graph.Locatable;
 
 /**
@@ -32,9 +34,10 @@ import org.geolatte.graph.Locatable;
  * @author <a href="http://www.qmino.com">Qmino bvba</a>
  * @since SDK1.5
  */
-public class DistanceHeuristicStrategy<T extends Locatable> implements HeuristicStrategy<T> {
+public class DistanceHeuristicStrategy<T extends Locatable> implements HeuristicStrategy<T>, Serializable {
 
-    private final float factor;
+    private static final long serialVersionUID = -8407359842322883407L;
+	private final float factor;
 
     public DistanceHeuristicStrategy(float factor) {
         this.factor = factor;

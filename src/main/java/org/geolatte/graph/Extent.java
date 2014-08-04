@@ -21,15 +21,18 @@
 
 package org.geolatte.graph;
 
+import java.io.Serializable;
+
 /**
  * Defines an area in a 2D plane.
  *
  * @author Bert Vanhooff
  * @author <a href="http://www.qmino.com">Qmino bvba</a>
  */
-public class Extent {
+public class Extent implements Serializable {
 
-    private final double minX;
+	private static final long serialVersionUID = -3427812873128079963L;
+	private final double minX;
     private final double maxX;
     private final double minY;
     private final double maxY;

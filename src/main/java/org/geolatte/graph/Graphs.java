@@ -22,13 +22,16 @@
 package org.geolatte.graph;
 
 import java.util.*;
+import java.io.Serializable;
 
 /**
  * Offers a number of static factory methods to create graphs.
  */
-public class Graphs {
+public class Graphs implements Serializable {
 
-    /**
+    private static final long serialVersionUID = -9172673537008711455L;
+
+	/**
      * Creates a builder for directed grid-indexed graphs.
      *
      * @param extent     The extent that determines the bounds of the graph.
@@ -95,9 +98,10 @@ public class Graphs {
             fNw.addEdge(toNw, edgeWeight, edgeLabel);
         }
 
-        private static class GridIndexedGraph<N extends Locatable, E> implements LocateableGraph<N, E> {
+        private static class GridIndexedGraph<N extends Locatable, E> implements LocateableGraph<N, E>, Serializable {
 
-            private final SpatialIndex<InternalNode<N, E>> index;
+			private static final long serialVersionUID = -2291700045019140829L;
+			private final SpatialIndex<InternalNode<N, E>> index;
 
             private GridIndexedGraph(SpatialIndex<InternalNode<N, E>> index) {
 

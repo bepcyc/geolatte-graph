@@ -23,6 +23,7 @@ package org.geolatte.graph.algorithms;
 
 import org.geolatte.graph.*;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
@@ -35,9 +36,10 @@ import java.util.Set;
  *
  * @author Karel Maesen
  */
-public class Dijkstra<N, E> implements GraphAlgorithm<Path<N>> {
+public class Dijkstra<N, E> implements GraphAlgorithm<Path<N>>, Serializable {
 
-    private final InternalNode<N, E> origin;
+    private static final long serialVersionUID = 8193298855507869810L;
+	private final InternalNode<N, E> origin;
     private final InternalNode<N, E> destination;
     private final Graph<N, E> graph;
     private final int weightIndex;

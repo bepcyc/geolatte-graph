@@ -21,6 +21,7 @@
 
 package org.geolatte.data;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -73,9 +74,10 @@ import java.util.List;
  *            comparable.
  * @author karel  Maesen, Geovise BVBA
  */
-public class PairingHeap<E> {
+public class PairingHeap<E> implements Serializable {
 
-    private PairNode<E> root;
+    private static final long serialVersionUID = -2967173952411117299L;
+	private PairNode<E> root;
     private Comparator<E> comparator;
 
     /**

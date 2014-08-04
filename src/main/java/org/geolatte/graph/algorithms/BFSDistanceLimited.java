@@ -28,6 +28,7 @@ import org.geolatte.graph.GraphTreeIterator;
 import org.geolatte.graph.InternalNode;
 import org.geolatte.graph.RoutingContextualReachability;
 
+import java.io.Serializable;
 import java.util.*;
 
 /**
@@ -40,9 +41,10 @@ import java.util.*;
  * @param <N> The type of domain node
  * @param <E> The edge label type.
  */
-public class BFSDistanceLimited<N, E> implements GraphAlgorithm<GraphTree<N, E>> {
+public class BFSDistanceLimited<N, E> implements GraphAlgorithm<GraphTree<N, E>>, Serializable {
 
-    private final InternalNode<N, E> source;
+    private static final long serialVersionUID = -4575828613170252767L;
+	private final InternalNode<N, E> source;
     private final float maxDistance;
     private final Graph<N, E> graph;
     private GraphTree<N, E> result;
@@ -119,9 +121,10 @@ public class BFSDistanceLimited<N, E> implements GraphAlgorithm<GraphTree<N, E>>
 //
 //    }
 
-    private static class BFSState<N, E> {
+    private static class BFSState<N, E> implements Serializable {
 
-        final InternalNode<N, E> internalNode;
+        private static final long serialVersionUID = -7424296921071393538L;
+		final InternalNode<N, E> internalNode;
         float distance = Float.POSITIVE_INFINITY;
         private BFSState<N, E> predecessor;
         private final List<BFSState<N, E>> children = new LinkedList<BFSState<N, E>>();
@@ -179,9 +182,10 @@ public class BFSDistanceLimited<N, E> implements GraphAlgorithm<GraphTree<N, E>>
         }
     }
 
-    private static class GraphTreeImpl<N, E> implements GraphTree<N, E> {
+    private static class GraphTreeImpl<N, E> implements GraphTree<N, E>, Serializable {
 
-        private final BFSState<N, E> root;
+        private static final long serialVersionUID = 2390143530920397856L;
+		private final BFSState<N, E> root;
 
         public GraphTreeImpl(BFSState<N, E> root) {
             this.root = root;
@@ -218,9 +222,10 @@ public class BFSDistanceLimited<N, E> implements GraphAlgorithm<GraphTree<N, E>>
         }
     }
 
-    private static class GraphTreeIteratorImpl<N, E> implements GraphTreeIterator<N, E> {
+    private static class GraphTreeIteratorImpl<N, E> implements GraphTreeIterator<N, E>, Serializable {
 
-        Queue<BFSState<N, E>> stack = new LinkedList<BFSState<N, E>>();
+        private static final long serialVersionUID = -5963642274303540349L;
+		Queue<BFSState<N, E>> stack = new LinkedList<BFSState<N, E>>();
         BFSState<N, E> current;
 
 

@@ -21,6 +21,8 @@
 
 package org.geolatte.graph.algorithms;
 
+import java.io.Serializable;
+
 import org.geolatte.graph.InternalNode;
 import org.geolatte.graph.PredGraph;
 
@@ -33,9 +35,10 @@ import org.geolatte.graph.PredGraph;
  * @author <a href="http://www.qmino.com">Qmino bvba</a>
  * @since SDK1.5
  */
-class DefaultRelaxer<N, E> implements Relaxer<N, E> {
+class DefaultRelaxer<N, E> implements Relaxer<N, E>, Serializable {
 
-    private float newWeight;
+    private static final long serialVersionUID = 5871803335700341231L;
+	private float newWeight;
 
     public boolean relax(PredGraph<N, E> u, PredGraph<N, E> v, int weightIndex) {
 

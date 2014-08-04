@@ -21,6 +21,8 @@
 
 package org.geolatte.graph;
 
+import java.io.Serializable;
+
 /**
  * <p>
  * An implementation of {@link EdgeWeight} that has a single weight.
@@ -30,9 +32,10 @@ package org.geolatte.graph;
  * @author <a href="http://www.qmino.com">Qmino bvba</a>
  * @since SDK1.5
  */
-public class BasicEdgeWeight implements EdgeWeight {
+public class BasicEdgeWeight implements EdgeWeight, Serializable {
 
-    private final float value;
+    private static final long serialVersionUID = -7891844279532330025L;
+	private final float value;
 
     /**
      * Constructs a BasiEdgeWeight with the given weight value.

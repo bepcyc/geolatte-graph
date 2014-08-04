@@ -1,5 +1,7 @@
 package org.geolatte.graph;
 
+import java.io.Serializable;
+
 /**
  * <p>
  * No comment provided yet for this class.
@@ -9,9 +11,11 @@ package org.geolatte.graph;
  * @author <a href="http://www.qmino.com">Qmino bvba</a>
  * @since SDK1.5
  */
-public class LocatedInternalNodeWrapper<N extends Locatable, E> extends InternalNodeWrapper<N, E> {
+public class LocatedInternalNodeWrapper<N extends Locatable, E> extends InternalNodeWrapper<N, E> implements Serializable {
 
-    LocatedInternalNodeWrapper(N node) {
+	private static final long serialVersionUID = 8517192078659969110L;
+
+	LocatedInternalNodeWrapper(N node) {
         super(node);
     }
 

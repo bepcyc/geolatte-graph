@@ -22,6 +22,7 @@
 package org.geolatte.graph;
 
 import java.util.*;
+import java.io.Serializable;
 
 /**
  * <p>
@@ -32,9 +33,10 @@ import java.util.*;
  * @author Bert Vanhooff
  * @since SDK1.5
  */
-class GridIndex<T extends Locatable> implements SpatialIndex<T> {
+class GridIndex<T extends Locatable> implements SpatialIndex<T>, Serializable {
 
-    private final Extent extent;
+	private static final long serialVersionUID = -4332424933830749891L;
+	private final Extent extent;
     private final float resolution;
     /*
      * The actual grid, elements are always of type T

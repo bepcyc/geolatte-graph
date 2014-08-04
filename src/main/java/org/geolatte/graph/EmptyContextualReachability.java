@@ -21,6 +21,8 @@
 
 package org.geolatte.graph;
 
+import java.io.Serializable;
+
 /**
  * An implementation of {@link org.geolatte.graph.RoutingContextualReachability} that does not limit reachability. Is
  * used internally
@@ -30,9 +32,11 @@ package org.geolatte.graph;
  * @author <a href="http://www.qmino.com">Qmino bvba</a>
  * @since SDK1.5
  */
-public final class EmptyContextualReachability<N, E, C> implements RoutingContextualReachability<N, E, C> {
+public final class EmptyContextualReachability<N, E, C> implements RoutingContextualReachability<N, E, C>, Serializable {
 
-    public boolean isReachable(InternalNode<N, E> nInternalNode) {
+    private static final long serialVersionUID = -4827741239328239127L;
+
+	public boolean isReachable(InternalNode<N, E> nInternalNode) {
         return true;
     }
 

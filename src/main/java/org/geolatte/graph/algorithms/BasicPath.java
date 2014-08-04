@@ -23,6 +23,7 @@ package org.geolatte.graph.algorithms;
 
 import org.geolatte.graph.Path;
 
+import java.io.Serializable;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -32,9 +33,10 @@ import java.util.List;
  *
  * @param <N>
  */
-class BasicPath<N> implements Path<N> {
+class BasicPath<N> implements Path<N>, Serializable {
 
-    private final List<N> nodes = new LinkedList<N>();
+    private static final long serialVersionUID = -6208319520193617233L;
+	private final List<N> nodes = new LinkedList<N>();
     private boolean valid = false;
     private float weight;
 

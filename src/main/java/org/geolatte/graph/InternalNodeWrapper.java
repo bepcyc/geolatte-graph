@@ -22,6 +22,7 @@
 package org.geolatte.graph;
 
 import java.util.Arrays;
+import java.io.Serializable;
 
 /**
  * Supports only one edge between two nodes!
@@ -29,13 +30,14 @@ import java.util.Arrays;
  * @author Karel Maesen, Geovise BVBA
  *         creation-date: Apr 25, 2010
  */
-class InternalNodeWrapper<N, E> implements InternalNode<N, E> {
+class InternalNodeWrapper<N, E> implements InternalNode<N, E>, Serializable {
 
 //InternalNodeWrapper objects should correspond one-to-one to their WrappedNodes.
     //Equals/hashcode implementation is therefore not necessary. For
     // performance reasons, it should not be implemented.
 
-    final N wrappedNodal;
+	private static final long serialVersionUID = 7215234012267655180L;
+	final N wrappedNodal;
     InternalNodeWrapper<N, E>[] toNodes = new InternalNodeWrapper[0];
     EdgeWeight[] toWeights = new EdgeWeight[0];
     Object[] toLabels = new Object[0];

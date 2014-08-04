@@ -24,6 +24,7 @@ package org.geolatte.graph.algorithms;
 import org.geolatte.graph.InternalNode;
 import org.geolatte.graph.PredGraph;
 
+import java.io.Serializable;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
@@ -36,9 +37,10 @@ import java.util.NoSuchElementException;
  * @author <a href="http://www.qmino.com">Qmino bvba</a>
  * @since SDK1.5
  */
-class BasicPredGraph<N, E> implements PredGraph<N, E> {
+class BasicPredGraph<N, E> implements PredGraph<N, E>, Serializable {
 
-    private final InternalNode<N, E> internalNode;
+    private static final long serialVersionUID = -136266015492468569L;
+	private final InternalNode<N, E> internalNode;
     private PredGraph<N, E> predecessor = null;
     private float weight;
 
