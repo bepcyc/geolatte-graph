@@ -264,7 +264,7 @@ public class PairingHeap<E> implements Serializable {
      * @param firstSibling The root of the conglomerate, assumed not null.
      * @return The new root node.
      */
-    private PairNode<E> combineSiblings(PairNode<E> firstSibling) {
+    private PairNode<E> combineSiblings(final PairNode<E> firstSibling) {
 
         if (firstSibling.getNextSibling() == null) { // if there are no siblings, there is nothing to merge
             return firstSibling;
@@ -272,10 +272,11 @@ public class PairingHeap<E> implements Serializable {
 
         // cut siblings loose and store subtrees in a list
         List<PairNode<E>> treeList = new ArrayList<PairNode<E>>();
-        while (firstSibling != null) {
-            treeList.add(firstSibling);
-            firstSibling.getPrev().setNextSibling(null); // Cut sibling loose from its previous (sibling/parent)
-            firstSibling = firstSibling.getNextSibling();
+        PairNode<E> currentSibling = firstSibling;
+        while (currentSibling != null) {
+            treeList.add(currentSibling);
+            currentSibling.getPrev().setNextSibling(null); // Cut sibling loose from its previous (sibling/parent)
+            currentSibling = currentSibling.getNextSibling();
         }
 
         //combine subtrees two at a time (in pairs, hence the name pairing heap)
