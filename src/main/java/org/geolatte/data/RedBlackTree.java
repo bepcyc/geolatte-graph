@@ -510,7 +510,7 @@ public class RedBlackTree<K, D> implements Serializable {
         int currentRule = -1;
         int col = 0;
 
-        private static final String space = " ";
+        private static final char SPACE = ' ';
 
         public void visit(TreeNode<K, D> obj) {
             currentRule++;
@@ -521,7 +521,7 @@ public class RedBlackTree<K, D> implements Serializable {
             StringBuilder stb = rulers.get(currentRule);
             if (obj == NIL) {
                 padToSize(this.col, stb);
-                stb.append(space).append(nodeWriter.write(obj)).append(space);
+                stb.append(SPACE).append(nodeWriter.write(obj)).append(SPACE);
                 this.col = stb.length();
             } else {
 
@@ -537,7 +537,7 @@ public class RedBlackTree<K, D> implements Serializable {
 
         private void padToSize(int length, StringBuilder stb) {
             while (length > stb.length()) {
-                stb.append(space);
+                stb.append(SPACE);
             }
         }
     }
