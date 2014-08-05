@@ -243,37 +243,39 @@ public class RedBlackTree<K, D> implements Serializable {
         return pointer;
     }
 
-    protected TreeNode<K, D> successor(TreeNode<K, D> node) {
-        if (!isNil(node.getRightChild())) {
-            return getMinNode(node.getRightChild());
+    protected TreeNode<K, D> successor(final TreeNode<K, D> node) {
+    	TreeNode<K, D> nd = node;
+        if (!isNil(nd.getRightChild())) {
+            return getMinNode(nd.getRightChild());
         }
-        TreeNode<K, D> parent = node.getParent();
-        while (!isNil(parent) && node == parent.getRightChild()) {
-            node = parent;
-            parent = node.getParent();
-        }
-        return parent;
-    }
-
-    protected TreeNode<K, D> predecessor(TreeNode<K, D> node) {
-        if (!isNil(node.getLeftChild())) {
-            return getMaxNode(node.getLeftChild());
-        }
-        TreeNode<K, D> parent = node.getParent();
-        while (!isNil(parent) && node == parent.getLeftChild()) {
-            node = parent;
-            parent = node.getParent();
+        TreeNode<K, D> parent = nd.getParent();
+        while (!isNil(parent) && nd == parent.getRightChild()) {
+            nd = parent;
+            parent = nd.getParent();
         }
         return parent;
     }
 
-    protected void delete(TreeNode<K, D> node) {
+    protected TreeNode<K, D> predecessor(final TreeNode<K, D> node) {
+    	TreeNode<K, D> nd = node;
+        if (!isNil(nd.getLeftChild())) {
+            return getMaxNode(nd.getLeftChild());
+        }
+        TreeNode<K, D> parent = nd.getParent();
+        while (!isNil(parent) && nd == parent.getLeftChild()) {
+            nd = parent;
+            parent = nd.getParent();
+        }
+        return parent;
+    }
 
+    protected void delete(final TreeNode<K, D> node) {
+    	TreeNode<K, D> nd = node;
         TreeNode<K, D> splice; //MyNode to splice out
-        if (isNil(node.left) || isNil(node.right)) {
-            splice = node;
+        if (isNil(nd.left) || isNil(nd.right)) {
+            splice = nd;
         } else {
-            splice = successor(node);
+            splice = successor(nd);
         }
         TreeNode<K, D> spliceChild;
         if (!isNil(splice.left)) {
@@ -290,16 +292,17 @@ public class RedBlackTree<K, D> implements Serializable {
         } else {
             splice.parent.right = spliceChild;
         }
-        if (splice != node) {
-            node.key = splice.key;
-            node.data = splice.data;
+        if (splice != nd) {
+            nd.key = splice.key;
+            nd.data = splice.data;
         }
         if (splice.color == BLACK) {
             deleteFix(spliceChild);
         }
     }
 
-    protected void deleteFix(TreeNode<K, D> nd) {
+    protected void deleteFix(final TreeNode<K, D> node) {
+    	TreeNode<K, D> nd = node;
         while (nd != this.root && nd.color == BLACK) {
 
             if (nd == nd.parent.left) {
@@ -412,7 +415,8 @@ public class RedBlackTree<K, D> implements Serializable {
         nd.parent = nd2;
     }
 
-    protected void insertFix(TreeNode<K, D> nd) {
+    protected void insertFix(final TreeNode<K, D> node) {
+    	TreeNode<K, D> nd = node;
         while (nd.parent.color == RED) {
             if (nd.parent == nd.parent.parent.left) {
                 TreeNode<K, D> nd2 = nd.parent.parent.right;

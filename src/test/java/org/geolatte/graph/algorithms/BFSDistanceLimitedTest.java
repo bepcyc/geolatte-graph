@@ -41,18 +41,18 @@ public class BFSDistanceLimitedTest {
      *
      */
 
-    private MyLocatableNode _0  = new MyLocatableNode(0, 0, 0);
-    private MyLocatableNode _1  = new MyLocatableNode(1, 0, 0);
-    private MyLocatableNode _2  = new MyLocatableNode(2, 0, 0);
-    private MyLocatableNode _3  = new MyLocatableNode(3, 0, 0);
-    private MyLocatableNode _4  = new MyLocatableNode(4, 0, 0);
-    private MyLocatableNode _5  = new MyLocatableNode(5, 0, 0);
-    private MyLocatableNode _6  = new MyLocatableNode(6, 0, 0);
-    private MyLocatableNode _7  = new MyLocatableNode(7, 0, 0);
-    private MyLocatableNode _8  = new MyLocatableNode(8, 0, 0);
-    private MyLocatableNode _9  = new MyLocatableNode(9, 0, 0);
-    private MyLocatableNode _10 = new MyLocatableNode(10, 0, 0);
-    private MyLocatableNode _11 = new MyLocatableNode(11, 0, 0);
+    private static final MyLocatableNode _0  = new MyLocatableNode(0, 0, 0);
+    private static final MyLocatableNode _1  = new MyLocatableNode(1, 0, 0);
+    private static final MyLocatableNode _2  = new MyLocatableNode(2, 0, 0);
+    private static final MyLocatableNode _3  = new MyLocatableNode(3, 0, 0);
+    private static final MyLocatableNode _4  = new MyLocatableNode(4, 0, 0);
+    private static final MyLocatableNode _5  = new MyLocatableNode(5, 0, 0);
+    private static final MyLocatableNode _6  = new MyLocatableNode(6, 0, 0);
+    private static final MyLocatableNode _7  = new MyLocatableNode(7, 0, 0);
+    private static final MyLocatableNode _8  = new MyLocatableNode(8, 0, 0);
+    private static final MyLocatableNode _9  = new MyLocatableNode(9, 0, 0);
+    private static final MyLocatableNode _10 = new MyLocatableNode(10, 0, 0);
+    private static final MyLocatableNode _11 = new MyLocatableNode(11, 0, 0);
 
     private Graph<MyLocatableNode, Object> graph;
 
