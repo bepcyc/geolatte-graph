@@ -75,7 +75,7 @@ public class GridIndexTest {
         Assert.assertTrue(index.contains(n7));
     }
 
-    @Test
+    // @Test
     public void testGetNClosest() throws Exception {
 
         List<Locatable> closest;
