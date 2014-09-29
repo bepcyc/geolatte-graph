@@ -223,8 +223,8 @@ class GridIndex<T extends Locatable> implements SpatialIndex<T>, Serializable {
 
         for (Object o : cell) {
             T nd = (T) o;
-            if (nd.getX() == loc.getX()
-                    && nd.getY() == loc.getY()) {
+            if (java.lang.Double.compare(nd.getX(), loc.getX()) == 0
+                    && java.lang.Double.compare(nd.getY(), loc.getY()) == 0) {
                 res.add(nd);
             }
         }

@@ -123,10 +123,13 @@ public class Graphs implements Serializable {
                 return Collections.unmodifiableList(this.index.getNClosest(loc, num, distance));
             }
 
+            private static boolean isSameLocation(Locatable node1, Locatable node2) {
+            	return java.lang.Double.compare(node1.getX(), node2.getX()) == 0 && java.lang.Double.compare(node1.getY(), node2.getY()) == 0;
+            }
 
             public InternalNode<N, E> getInternalNode(N node) {
                 for (InternalNode<N, E> nw : this.index.getNodeAt(node)) {
-                    if (nw.getWrappedNode().equals(node)) {
+                    if (isSameLocation(nw.getWrappedNode(), node)) {
                         return nw;
                     }
                 }
